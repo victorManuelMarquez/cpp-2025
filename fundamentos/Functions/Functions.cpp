@@ -64,6 +64,8 @@ int main() {
     pedirNumero(n2);
     cout << '\n' << n1 << " + " << n2 << " = " << sumar(n1, n2);
     cout << '\n' << n1 << " - " << n2 << " = " << restar(n1, n2);
+    auto producto = [](int x, int y) -> int { return x * y; }; // función lambda
+    cout << '\n' << n1 << " * " << n2 << " = " << producto(n1, n2);
     cout << '\n' << n1 << " / " << n2 << " = " << setprecision(3) << division(n1, n2);
     cout << '\n' << n1 << " ^ 2 = " << potencia(n1);
     cout << '\n' << n1 << " ^ " << n2 << " = " << potencia(n1, n2);
