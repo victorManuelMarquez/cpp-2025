@@ -13,9 +13,11 @@ int main() {
         {9, 7, 8, 1}
     };
     int valor;
+    string cadena;
     do {
         cout << "Ingrese un número para buscar en la matriz: ";
-        cin >> valor;
+        getline(cin, cadena);
+        valor = stoi(cadena);
     } while (!valor);
     buscar(valor, matriz);
     cout << "\nFin del programa." << endl;
