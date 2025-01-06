@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -11,10 +12,12 @@ int sumar(int n1, int n2) {
 
 // función con paso por referencia y no devuelve nada
 void pedirNumero(int &n) {
+    string valor;
     do {
         cout << "\nIngrese un número: ";
-        cin >> n;
-    } while (n < 0 && n > 100);
+        getline(cin, valor);
+        n = atoi(valor.c_str());
+    } while (n < 1 || n > 100);
 }
 
 // función con paso por referencia sin alteración y devuelve resultado
@@ -36,20 +39,22 @@ unsigned int potencia(const int& n1, int exp = 2) {
 
 // función sin parámetros y devuelve un resultado
 short pedirNro() {
-    short n = 0;
+    string valor;
+    short n;
     do {
         cout << "\nIngrese un número positivo menor que 13: ";
-        cin >> n;
-    } while (n > 12);
+        getline(cin, valor);
+        n = atoi(valor.c_str());
+    } while (n < 1 || n > 12);
     return n;
 }
 
 // función recursiva
 unsigned int factorial(int n) {
-    if (n == 1)
-        return 1;
-    else
+    if (n > 1)
         return n * factorial(n - 1);
+    else
+        return 1;
 }
 
 // función principal
