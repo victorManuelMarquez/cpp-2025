@@ -38,23 +38,28 @@ void mostrarVector(const vector<int> &vector) {
 
 void insertarNumAlFinal(vector<int> &vector) {
     int nuevo;
+    string cadena;
     do {
         cout << "Ingrese un número para insertar al final del vector: ";
-        cin >> nuevo;
+        getline(cin, cadena);
+        nuevo = stoi(cadena);
     } while (!nuevo);
     vector.push_back(nuevo);
 }
 
 void insertarNumEnX(vector<int> &vector) {
     int pos;
+    string cadena;
     do {
         cout << "Ingrese la posición en la que desea insertar un dato: ";
-        cin >> pos;
+        getline(cin, cadena);
+        pos = stoi(cadena);
     } while (pos < 0);
     int num;
     do {
         cout << "Ingrese el número a insertar en " << pos << ": ";
-        cin >> num;
+        getline(cin, cadena);
+        num = stoi(cadena);
     } while (!num);
     vector.insert(vector.begin() + pos, num);
 }
