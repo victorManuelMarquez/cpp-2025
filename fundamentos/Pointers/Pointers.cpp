@@ -7,7 +7,7 @@ void mostrar(const int* array, const int& total) {
     cout << "Array de " << total << " elementos: ";
     int *i = new int; // puntero dinámico
     for (*i = 0; *i < total; *i += 1) {
-        cout << array[*i] << ", ";
+        cout << *(array + *i) << ", "; // apuntando a la siguiente dirección
     }
     cout << "fin del array.\n";
     delete i; // libero el puntero dinámico (equivalente a free(*ptr) de C)
