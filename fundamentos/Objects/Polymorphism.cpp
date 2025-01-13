@@ -10,11 +10,13 @@ class Figura {
         Figura(std::string nombre) : nombre(nombre) {};
     
     public:
+        // polimorfismo dinámico
         virtual float perimetro() const
         {
             return 0;
         }
 
+        // esta función no es accesible desde una referencia de esta clase sin hacer casting dinámico
         std::string getNombre() {
             return nombre;
         }
@@ -59,6 +61,8 @@ class Cuadrado : public Rectagulo {
         }
 };
 
+void calcularPerimetroDe(const Figura* f);
+
 int main(void) {
     // uso normal de un objeto
     Rectagulo r(8, 4);
@@ -67,9 +71,14 @@ int main(void) {
     Cuadrado c(12); // instancia de cuadrado
     Figura* f = &c; // asigno la referencia
     // no se puede llamar a la función de la clase hija usando la referencia a la clase base
-    std::cout << "Perímetro de un " << f->getNombre() << " = " << f->perimetro() << '\n';
+    calcularPerimetroDe(f);
     std::cout << "Perímetro de un " << c.getNombre() << c.medidas() << " = " << c.perimetro() << '\n';
     std::cout << "Fin del programa." << std::endl;
     // si empleara punteros con new se debe invocar delete *puntero y luego *puntero = nullptr
     return EXIT_SUCCESS;
+}
+
+void calcularPerimetroDe(const Figura* f) {
+    // polimorfismo estático
+    std::cout << "el perímetro de la figura es de " << f->perimetro() << '\n';
 }
