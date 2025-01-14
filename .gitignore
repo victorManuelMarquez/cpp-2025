@@ -26,6 +26,9 @@
 *.a
 *.lib
 
+# vscode
+.vscode
+
 # Executables
 *.exe
 *.out
@@ -47,3 +50,4 @@ fundamentos/Random/Random
 fundamentos/Objects/Basics
 fundamentos/Objects/Inheritance
 fundamentos/Objects/Polymorphism
+fundamentos/Objects/Templates
